@@ -33,7 +33,9 @@ from electrumx.lib.util import bytes_to_int, int_to_bytes, hex_to_bytes
 
 _sha256 = hashlib.sha256
 _new_hash = hashlib.new
+_new_hmac = hmac.new
 _hmac_digest = hmac.digest
+
 HASHX_LEN = 11
 
 
@@ -42,8 +44,15 @@ def sha256(x):
     return _sha256(x).digest()
 
 
+def ripemd160(x):
+    '''Simple wrapper of hashlib ripemd160.'''
+    h = _new_hash('ripemd160')
+    h.update(x)
+    return h.digest()
+
+
 def double_sha256(x):
-    '''SHA-256 of SHA-256, as used extensively in bitcoin.'''
+    '''SHA-256 of SHA-256, as used extensively in Chesscoin.'''
     return sha256(sha256(x))
 
 

@@ -29,15 +29,15 @@ functions. For example, `x11_hash`_ is required for DASH. Scrypt coins
 require a Python interpreter compiled and/or linked with OpenSSL 1.1.0
 or higher.
 
-You **must** be running a non-pruning bitcoin daemon with::
+You **must** be running a non-pruning chesscoin daemon with::
 
   txindex=1
 
 set in its configuration file.  If you have an existing installation
-of bitcoind and have not previously set this you will need to reindex
+of chesscoind and have not previously set this you will need to reindex
 the blockchain with::
 
-  bitcoind -reindex
+  chesscoind -reindex
 
 which can take some time.
 
@@ -269,11 +269,11 @@ from heights 363,000 to 378,000 is the most sluggish::
 
 *Machine A*: a low-spec 2011 1.6GHz AMD E-350 dual-core fanless CPU,
 8GB RAM and a DragonFlyBSD UFS filesystem on an SSD.  It requests
-blocks over the LAN from a bitcoind on machine B.  :envvar:`DB_CACHE`
+blocks over the LAN from a chesscoind on machine B.  :envvar:`DB_CACHE`
 the default of 1,200.  LevelDB.
 
 *Machine B*: a late 2012 iMac running Sierra 10.12.2, 2.9GHz quad-core
-Intel i5 CPU with an HDD and 24GB RAM.  Running bitcoind on the same
+Intel i5 CPU with an HDD and 24GB RAM.  Running chesscoind on the same
 machine.  :envvar:`DB_CACHE` set to 1,800.  LevelDB.
 
 For chains other than bitcoin-mainnet synchronization should be much

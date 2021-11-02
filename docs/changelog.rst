@@ -14,8 +14,8 @@ install this package via e.g. :code:`pip install e-x`.
 * security: a vulnerability has been fixed that allowed a remote attacker to
   crash electrumx if peer discovery was enabled (`#22`_)
 * fixed some peer-discovery-related bugs (e.g. `#35`_)
-* ENV: when using Bitcoin, the COIN ENV var can now be set to :code:`Bitcoin`.
-  For compatibility, using :code:`BitcoinSegwit` will also keep working.
+* ENV: when using Chesscoin, the COIN ENV var can now be set to :code:`Chesscoin`.
+  For compatibility, using :code:`ChesscoinSegwit` will also keep working.
   (`#5`_)
 * session resource limits: made more useful in general. connection-time-based
   grouping has been removed (`#70`_). Disconnects of over-limit sessions happen
@@ -24,7 +24,7 @@ install this package via e.g. :code:`pip install e-x`.
 * protocol: :code:`mempool.get_fee_histogram` now returns fee rates with
   0.1 sat/byte resolution instead of 1 sat/byte, and the compact histogram
   is calculated differently. (`#67`_)
-* performance: bitcoind is now queried less frequently as estimatefee,
+* performance: chesscoind is now queried less frequently as estimatefee,
   relayfee, and server.banner requests are now cached (`#24`_)
 * performance: json ser/deser is now abstracted away and the :code:`ujson` and
   :code:`rapidjson` exras can be used for somewhat faster block processing.

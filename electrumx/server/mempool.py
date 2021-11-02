@@ -53,11 +53,11 @@ class MemPoolAPI(ABC):
 
     @abstractmethod
     async def height(self):
-        '''Query bitcoind for its height.'''
+        '''Query chesscoind for its height.'''
 
     @abstractmethod
     def cached_height(self):
-        '''Return the height of bitcoind the last time it was queried,
+        '''Return the height of chesscoind the last time it was queried,
         for any reason, without actually querying it.
         '''
 
@@ -67,7 +67,7 @@ class MemPoolAPI(ABC):
 
     @abstractmethod
     async def mempool_hashes(self):
-        '''Query bitcoind for the hashes of all transactions in its
+        '''Query chesscoind for the hashes of all transactions in its
         mempool, returned as a list.'''
 
     @abstractmethod

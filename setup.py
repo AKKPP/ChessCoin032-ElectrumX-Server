@@ -27,7 +27,7 @@ setuptools.setup(
     packages=setuptools.find_packages(include=('electrumx*',)),
     description='ElectrumX Server',
     author='Electrum developers',
-    author_email='electrumdev@gmail.com',
+    author_email='alexandkolesnik73@gmail.com',
     license='MIT Licence',
     url='https://github.com/spesmilo/electrumx',
     long_description='Server implementation for the Electrum protocol',

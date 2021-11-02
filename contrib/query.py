@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 #
 # Copyright (c) 2016-2018, Neil Booth
+# Copyright (c) 2021, Oleksandr 
 #
 # All rights reserved.
 #

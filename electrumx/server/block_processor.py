@@ -240,7 +240,7 @@ class BlockProcessor:
             await self.reorg_chain()
         else:
             # It is probably possible but extremely rare that what
-            # bitcoind returns doesn't form a chain because it
+            # chesscoind returns doesn't form a chain because it
             # reorg-ed the chain as it was processing the batched
             # block hash requests.  Should this happen it's simplest
             # just to reset the prefetcher and try again.
@@ -563,7 +563,7 @@ class BlockProcessor:
     That's 60 bytes of raw data in-memory.  Python dictionary overhead
     means each entry actually uses about 205 bytes of memory.  So
     almost 5 million UTXOs can fit in 1GB of RAM.  There are
-    approximately 42 million UTXOs on bitcoin mainnet at height
+    approximately 42 million UTXOs on chesscoin mainnet at height
     433,000.
 
     Semantics:

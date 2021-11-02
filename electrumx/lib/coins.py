@@ -343,8 +343,7 @@ class KomodoMixin:
     GENESIS_HASH = ('027e3758c3a65b12aa1046462b486d0a'
                     '63bfa1beae327897f56c5cfb7daaae71')
     DESERIALIZER = lib_tx.DeserializerZcash
-
-
+    
 class BitcoinMixin:
     SHORTNAME = "BTC"
     NET = "mainnet"
@@ -624,7 +623,7 @@ class Bitcoin(BitcoinMixin, Coin):
     DESERIALIZER = lib_tx.DeserializerSegWit
     MEMPOOL_HISTOGRAM_REFRESH_SECS = 120
     TX_COUNT = 565436782
-    TX_COUNT_HEIGHT = 646855
+    TX_COUNT_HEIGHT = 690723	
     TX_PER_BLOCK = 2200
     CRASH_CLIENT_VER = (3, 2, 3)
     BLACKLIST_URL = 'https://electrum.org/blacklist.json'
@@ -3994,3 +3993,51 @@ class Syscoin(AuxPowMixin, Coin):
     RPC_PORT = 8370
     REORG_LIMIT = 2000
     CHUNK_SIZE = 360
+    
+
+class ChesscoinMixin:
+    SHORTNAME = "CHSC"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488b21e")
+    XPRV_VERBYTES = bytes.fromhex("0488ade4")
+    RPC_PORT = 7324
+
+class Chesscoin(ChesscoinMixin, Coin):
+    NAME = "Chesscoin"
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    GENESIS_HASH = ('0000048f94311e912681a9a25eb553e4'
+                    'a4d1703689c5f9a264c7b07245c7ff1f')
+    MEMPOOL_HISTOGRAM_REFRESH_SECS = 120
+    TX_COUNT = 565436782
+    TX_COUNT_HEIGHT = 4849
+    TX_PER_BLOCK = 2200
+
+    CRASH_CLIENT_VER = (3, 2, 3)
+   # BLACKLIST_URL = 'https://electrum.org/blacklist.json'
+    PEERS = []
+
+    @classmethod
+    def warn_old_client_on_tx_broadcast(cls, client_ver):
+        if client_ver < (3, 3, 3):
+            return ('<br/><br/>'
+                    'Your transaction was successfully broadcast.<br/><br/>'
+                    'However, you are using a VULNERABLE version of Electrum.<br/>'
+                    'Download the new version from the usual place:<br/>'
+                    'https://pandoracoin.org/'
+                    '<br/><br/>')
+        return False
+
+    @classmethod
+    def bucket_estimatefee_block_target(cls, n: int) -> int:
+        # values based on https://github.com/bitcoin/bitcoin/blob/af05bd9e1e362c3148e3b434b7fac96a9a5155a1/src/policy/fees.h#L131  # noqa
+        if n <= 1:
+            return 1
+        if n <= 12:
+            return n
+        if n == 25:  # so common that we make an exception for it ok
+            return n
+        if n <= 48:
+            return n // 2 * 2
+        if n <= 1008:
+            return n // 24 * 24
+        return 1008

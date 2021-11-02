@@ -101,7 +101,7 @@ class Merkle:
 
         The caller should have confirmed the length of the branch with
         branch_length().  Unfortunately this is not easily done for
-        bitcoin transactions as the number of transactions in a block
+        chesscoin transactions as the number of transactions in a block
         is unknown to an SPV client.
         '''
         hash_func = self.hash_func

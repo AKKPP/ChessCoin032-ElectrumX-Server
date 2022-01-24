@@ -4,10 +4,10 @@
 ###############
 
 # configure electrumx
-export COIN=Bitcoin
+export COIN=Chesscoin
 export DAEMON_URL=http://rpcuser:rpcpassword@127.0.0.1
 export NET=mainnet
-export CACHE_MB=400
+export CACHE_MB=500
 export DB_DIRECTORY=/home/ubuntu/.electrumx/db
 export SSL_CERTFILE=/home/ubuntu/.electrumx/certfile.crt
 export SSL_KEYFILE=/home/ubuntu/.electrumx/keyfile.key

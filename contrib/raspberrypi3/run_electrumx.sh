@@ -7,7 +7,7 @@
 export COIN=Chesscoin
 export DAEMON_URL=http://rpcuser:rpcpassword@127.0.0.1
 export NET=mainnet
-export CACHE_MB=500
+export CACHE_MB=200
 export DB_DIRECTORY=/home/ubuntu/.electrumx/db
 export SSL_CERTFILE=/home/ubuntu/.electrumx/certfile.crt
 export SSL_KEYFILE=/home/ubuntu/.electrumx/keyfile.key
@@ -21,7 +21,7 @@ export SSL_PORT=50002
 
 # visibility
 export REPORT_HOST=hostname.com
-export RPC_PORT=7324
+export RPC_PORT=8324
 
 # run electrumx
 ulimit -n 10000

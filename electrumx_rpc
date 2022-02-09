@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 #
 # Copyright (c) 2016-2018, Neil Booth
 #
@@ -108,7 +108,7 @@ def main():
     args = vars(args)
     port = args.pop('port')
     if port is None:
-        port = int(environ.get('RPC_PORT', 7324))
+        port = int(environ.get('RPC_PORT', 8324))
     method = args.pop('command')
 
     # aiorpcX makes this so easy...

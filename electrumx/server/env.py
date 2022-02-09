@@ -159,7 +159,7 @@ class Env(EnvBase):
 
         default_services = {protocol: {ServicePart.HOST: 'all_interfaces'}
                             for protocol in self.KNOWN_PROTOCOLS}
-        default_services['rpc'] = {ServicePart.HOST: 'localhost', ServicePart.PORT: 7324}
+        default_services['rpc'] = {ServicePart.HOST: '127.0.0.1', ServicePart.PORT: 8324}
         services = self._parse_services(self.default('SERVICES', ''), default_part)
 
         # Find onion hosts
